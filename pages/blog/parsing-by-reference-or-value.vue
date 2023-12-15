@@ -20,8 +20,6 @@
             
             <!-- content -->
             <div class="pb-16">
-                <!-- space of content -->
-                <!-- |     content      | |sidebar| -->
                 <div class="lg:grid lg:grid-cols-6 lg:gap-5">
                     <!-- content -->
                     <div class="lg:col-span-5">

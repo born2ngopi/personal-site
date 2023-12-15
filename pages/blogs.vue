@@ -3,7 +3,6 @@
         <div class="blog">
             <div class="container">
                 <h1 class="text-4xl font-semibold text-sky-950 dark:text-white">Blog Page</h1>
-
                 <div class="block lg:hidden">
                     <div class="mt-10">
                         <BlogCard v-for="blog in blogs" :blog="blog" class="mb-4"/>
@@ -50,9 +49,17 @@ const blogs = [
         "id": "parsing-by-reference-or-value",
         "commingsoon": false,
         "title": "Parsing by Reference or Value",
-        "tags": ["Go", "Golang", "Programming", "todo"],
+        "tags": ["Go", "Golang", "Programming"],
         "date": "2023-12-14",
         "Summary": "Apakah benar parsing by reference itu lebih baik manajemen memorynya daripada parsing by value?"
+    },
+    {
+        "id": "mengenal-pragma-di-golang",
+        "commingsoon": false,
+        "title":"Mengenal Pragma di Golang",
+        "tags": ["Go", "Golang", "Programming"],
+        "date": "2023-12-14",
+        "Summary": "Banyak programmer golang yang tidak mengenal pragma, apa itu pragma dan gimana cara kerjanya?"
     },
     {
         "id": "inside-channel-golang",
