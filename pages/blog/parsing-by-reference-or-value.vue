@@ -1,6 +1,6 @@
 <template>
     <div class="blog">
-        <div class="container">
+        <div class="container ">
             <!-- header -->
             <div>
                 <!-- title -->
@@ -22,9 +22,9 @@
             <div class="pb-16">
                 <!-- space of content -->
                 <!-- |     content      | |sidebar| -->
-                <div class="grid grid-cols-6 gap-5">
+                <div class="lg:grid lg:grid-cols-6 lg:gap-5">
                     <!-- content -->
-                    <div class="col-span-5">
+                    <div class="lg:col-span-5">
                         <!-- content -->
                         <div class="text-sky-950 dark:text-white">
                             <p>Benarkah return by reference (pointer) lebih bagus dibandingkan return by value ?</p>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <!-- sidebar -->
-                    <div class="col-span-1">
+                    <div class="hidden lg:block lg:col-span-1">
                         <div class="text-sky-950 dark:text-white">
                             <h2 class="text-2xl font-semibold">About Me</h2>
                             <p class="mt-3">Chandra Agung Rizky</p>
@@ -259,6 +259,6 @@ main.main STEXT size=86 args=0x0 locals=0x20 funcid=0x0 align=0x0
 
 <style scoped>
 .blog {
-    padding-top: 6%;
+    padding-top: 100px;
 }
 </style>
