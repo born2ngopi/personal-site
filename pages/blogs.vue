@@ -4,12 +4,12 @@
             <div class="container">
                 <h1 class="text-4xl font-semibold text-sky-950 dark:text-white">Blog Page</h1>
 
-                <div v-if="this.isLargeScreen">
+                <div class="block lg:hidden">
                     <div class="mt-10">
                         <BlogCard v-for="blog in blogs" :blog="blog" class="mb-4"/>
                     </div>
                 </div>
-                <div v-else>
+                <div class="hidden lg:block">
                     <div class="grid grid-cols-6 gap-5 mt-10">
                         <div class="col-span-5">
                             <BlogCard v-for="blog in blogs" :blog="blog" class="mb-4"/>
@@ -38,34 +38,6 @@ export default {
         return {
             isLargeScreen: true
         }
-    },
-    mounted(){
-        if (process.client) {
-            if (window.innerWidth !== undefined && window.innerHeight !== undefined) {
-                this.isLargeScreen = window.innerWidth < 1024;
-            } else {
-                this.isLargeScreen = document.documentElement.clientWidth < 1024;
-            }
-
-            window.addEventListener('resize', () => {
-                if (window.innerWidth !== undefined && window.innerHeight !== undefined) {
-                    if (window.innerWidth < 1024) {
-                        this.isLargeScreen = true;
-                    } else {
-                        this.isLargeScreen = false;
-                    }
-                } else {
-                    this.isLargeScreen = document.documentElement.clientWidth > 1024;
-
-                    if (document.documentElement.clientWidth < 1024) {
-                        this.isLargeScreen = true;
-                    } else {
-                        this.isLargeScreen = false;
-                    }
-                }
-            });
-        }
-        
     }
 }
 </script>
