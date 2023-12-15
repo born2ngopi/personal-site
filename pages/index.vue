@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navigation />
+       
 
         <div class="home">
             
@@ -20,7 +20,7 @@
             </div>
 
             <!-- about me -->
-            <div class="aboutme bg-[#F5F5F5] pt-20 pb-20 dark:bg-slate-600">
+            <div class="aboutme bg-[#F5F5F5] pt-52 pb-52 dark:bg-slate-600">
                 <div class="container">
                     <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">About Me</h1>
                     <p class="sub-text mt-3 text-slate-400">I am a Backend Engineer with more than 5 years of experience in the software development field. I have worked on various projects that demand expertise in managing databases, designing backend architectures, and ensuring optimal system performance.</p>
@@ -30,7 +30,7 @@
             </div>
 
             <!-- skills -->
-            <div class="skills pt-20 pb-20">
+            <div class="skills pt-52 pb-52">
                 <div class="container">
                     <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Skills & Expertise</h1>
                     <div class="mt-4 flex space-x-4">
@@ -45,7 +45,7 @@
             </div>
 
             <!-- contact -->
-            <div class="bg-[#F5F5F5] pt-20 pb-20 dark:bg-slate-600">
+            <div class="bg-[#F5F5F5] pt-52 pb-52 dark:bg-slate-600">
                 <div class="container">
                     <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Contact Me</h1>
                     <p class="sub-text mt-3 text-slate-400">Let's discuss your project or idea. You can reach me at:</p>

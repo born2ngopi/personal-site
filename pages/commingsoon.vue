@@ -3,6 +3,7 @@
         <div class="coming-soon__content text-sky-950 dark:text-white">
             <h1 class="coming-soon__title">Coming Soon</h1>
             <p class="coming-soon__text">We are working hard to launch this page.</p>
+            <UButton @click="$router.go(-1)" class="mt-10">Back</UButton>
         </div>
     </div>
 </template>

@@ -4,5 +4,8 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxtjs/color-mode'],
   colorMode: {
     preference: 'dark'
-  }
+  },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
 })
