@@ -48,6 +48,7 @@ export default {
 const blogs = [
     {
         "id": "parsing-by-reference-or-value",
+        "commingsoon": false,
         "title": "Parsing by Reference or Value",
         "tags": ["Go", "Golang", "Programming", "todo"],
         "date": "2023-12-14",
@@ -55,6 +56,7 @@ const blogs = [
     },
     {
         "id": "inside-channel-golang",
+        "commingsoon": true,
         "title": "Inside Channel Golang",
         "tags": ["Go", "Golang", "Programming","todo"],
         "date": "2023-12-14",
@@ -62,6 +64,7 @@ const blogs = [
     },
     {
         "id": "making-2d-game-with-godot-4",
+        "commingsoon": true,
         "title": "Making 2D Game with Godot 4",
         "tags": ["Godot", "GDScript", "Programming", "todo"],
         "date": "2023-12-14",
@@ -69,6 +72,7 @@ const blogs = [
     },
     {
         "id": "how-to-use-jaeger-for-logging",
+        "commingsoon": true,
         "title": "How to Use Jaeger for Logging",
         "tags": ["Go", "Golang", "Programming", "todo"],
         "date": "2023-12-14",
