@@ -3,7 +3,7 @@
         <nav row :class="{'shadow-md bg-neutral-50 dark:bg-slate-700': isScrolled}" >
             <div id="menu">
                 <a :class="{active: currentRoute === '/'}"  @click="navigateTo('/')">Me</a>
-                <!-- <a :class="{active: currentRoute === '/blog'}"  @click="navigateTo('/blog')">Blog</a> -->
+                <a :class="{active: currentRoute === '/blogs'}"  @click="navigateTo('/blogs')">Blog</a>
             </div>
         </nav>
     </div>

@@ -1,5 +1,9 @@
 <template>
+    <div>
+        <Navigation />
+
         <div class="home">
+            
             <div class="me ">
                 
                 <div class="container">
@@ -51,6 +55,10 @@
             </div>
 
         </div>
+
+        <Footer />
+    </div>
+        
 </template>
 
 <script>

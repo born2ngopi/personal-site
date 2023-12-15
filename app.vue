@@ -1,9 +1,7 @@
 <template>
   <div class="bg-white dark:bg-slate-800">
-    <Navigation />
     <ColorMode />
     <NuxtPage />
-    <Footer />
   </div>
 </template>
 
