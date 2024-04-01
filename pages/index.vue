@@ -156,7 +156,13 @@ export default {
                     title:'Requtrap',
                     link: 'https://github.com/libidev/requtrap.go',
                     description: 'Fast and Configurable API Gateway Written Using Go',
-                    icon: ['i-fa6-brands-golang']
+                    icon: ['i-fa6-brands-golang','i-carbon-gateway-api']
+                },
+                {
+                    title: 'Flag',
+                    link: 'https://github.com/naya-team/flag',
+                    description: 'Flagger code for better feature release',
+                    icon: ['i-fa6-brands-golang','i-wpf-filled-flag']
                 }
             ]
         }
