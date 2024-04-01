@@ -125,7 +125,7 @@ export default {
                 },
                 {
                     title: 'Dolpin',
-                    description: 'Dolpin is tools for auto generate commit with ollama',
+                    description: 'Dolpin is tools for auto generate go unit test',
                     icon: ['i-fa6-brands-golang'],
                     link: 'https://github.com/born2ngopi/dolpin',
                 }
