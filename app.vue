@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  padding: 0 5%;
+  padding: 0 20%;
 }
 
 .page-enter-active,

@@ -44,8 +44,40 @@
                 </div>
             </div>
 
+            <!-- project -->
+            <div class="bg-[#F5F5F5] project pt-52 pb-52 dark:bg-slate-600">
+                <div class="container">
+                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Projects</h1>
+                    <p class="mt-2">This my personal reaserch for improving my knowledge and productivity</p>
+                    <!-- containt -->
+                    <div >
+
+                        <h3 class="mt-4 mb-4 text-3xl">Website</h3>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div v-for="project in websites">
+                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
+                            </div>
+                        </div>
+
+
+                        <h3 class="mt-4 mb-4 text-3xl">Tools</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            
+                            
+
+                            <div v-for="project in projects">
+                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
             <!-- contact -->
-            <div class="bg-[#F5F5F5] pt-52 pb-52 dark:bg-slate-600">
+            <div class="pt-52 pb-52 ">
                 <div class="container">
                     <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Contact Me</h1>
                     <p class="sub-text mt-3 text-slate-400">Let's discuss your project or idea. You can reach me at:</p>
@@ -73,6 +105,33 @@ export default {
         // set height of class me to screen height
         document.getElementsByClassName('me')[0].style.height = screenHeight + 'px';
     },
+    // create list data for project
+    data() {
+        return {
+            websites: [
+                {
+                    title: 'Personal Site',
+                    description: 'This my personal site',
+                    icon: ['i-nonicons-vue-16','i-simple-icons-nuxtdotjs'],
+                    link: 'https://github.com/born2ngopi/personal-site',
+                }
+            ],
+            projects: [
+                {
+                    title: 'Orca',
+                    description: 'Orca is tools for auto generate commit with ollama',
+                    icon: ['i-fa6-brands-golang'],
+                    link: 'https://github.com/born2ngopi/orca',
+                },
+                {
+                    title: 'Dolpin',
+                    description: 'Dolpin is tools for auto generate commit with ollama',
+                    icon: ['i-fa6-brands-golang'],
+                    link: 'https://github.com/born2ngopi/dolpin',
+                }
+            ]
+        }
+    }
 };
 </script>
 
