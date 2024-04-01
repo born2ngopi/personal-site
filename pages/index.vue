@@ -29,21 +29,6 @@
                 </div>
             </div>
 
-            <!-- skills -->
-            <div class="skills pt-52 pb-52">
-                <div class="container">
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Skills & Expertise</h1>
-                    <div class="mt-4 flex space-x-4">
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Vue</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Go</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Python</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Javascript</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Php</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Rust</UBadge>
-                    </div>
-                </div>
-            </div>
-
             <!-- project -->
             <div class="bg-[#F5F5F5] project pt-52 pb-52 dark:bg-slate-600">
                 <div class="container">
@@ -75,6 +60,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- skills -->
+            <div class="skills pt-52 pb-52">
+                <div class="container">
+                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Skills & Expertise</h1>
+                    <div class="mt-4 flex space-x-4">
+                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Vue</UBadge>
+                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Go</UBadge>
+                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Python</UBadge>
+                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Javascript</UBadge>
+                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Php</UBadge>
+                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Rust</UBadge>
+                    </div>
+                </div>
+            </div>
+
+            
 
             <!-- contact -->
             <div class="pt-52 pb-52 ">
