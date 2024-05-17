@@ -46,6 +46,14 @@ export default {
 
 const blogs = [
     {
+        "id": "kontribusi-di-golang",
+        "commingsoon": false,
+        "title": "Ikut Berkontribusi di Golang",
+        "tags": ["Go", "Golang", "Programming"],
+        "date": "2024-05-17",
+        "Summary": "Kita akan belajar dan mencoba bagaimana caranya berkontribusi di golang"
+    },
+    {
         "id": "parsing-by-reference-or-value",
         "commingsoon": false,
         "title": "Parsing by Reference or Value",
