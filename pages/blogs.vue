@@ -9,11 +9,11 @@
                     </div>
                 </div>
                 <div class="hidden lg:block">
-                    <div class="grid grid-cols-6 gap-5 mt-10">
+                    <div class="grid grid-cols-7 gap-5 mt-10">
                         <div class="col-span-5">
                             <BlogCard v-for="blog in blogs" :blog="blog" class="mb-4"/>
                         </div>
-                        <div class="hidden lg:block">
+                        <div class="col-span-2 hidden lg:block">
                             <h2 class="text-4xl mb-4 font-semibold text-sky-950 dark:text-white">About Me</h2>
                             <!-- adding name  -->
                             <nuxt-link to="/" class="text-2xl mt-4 font-semibold text-sky-950 dark:text-white">Chandra Agung Rizky</nuxt-link>

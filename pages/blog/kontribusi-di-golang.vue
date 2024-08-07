@@ -20,7 +20,7 @@
             
             <!-- content -->
             <div class="pb-16">
-                <div class="lg:grid lg:grid-cols-6 lg:gap-5">
+                <div class="lg:grid lg:grid-cols-7 lg:gap-5">
                     <!-- content -->
                     <div class="lg:col-span-5">
         
@@ -109,7 +109,7 @@
                     </div>
 
                     <!-- sidebar -->
-                    <div class="hidden lg:block lg:col-span-1">
+                    <div class="hidden lg:block lg:col-span-2">
                         <div class="text-sky-950 dark:text-white">
                             <h2 class="text-2xl font-semibold">About Me</h2>
                             <p class="mt-3">Chandra Agung Rizky</p>

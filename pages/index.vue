@@ -7,7 +7,8 @@
             <div class="me ">
                 
                 <div class="container">
-                    <h1 id="title" class="text-6xl font-semibold text-sky-950 dark:text-white">Hello... 👋, I'm Chandra Agung Rizky</h1>
+                    <h1 id="title" class="text-6xl font-semibold text-sky-950 dark:text-white">Hello... 👋,</h1>
+                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">I'm Chandra Agung Rizky</h1>
                     <p id="sub-title" class="sub-text text-slate-400">A passionate software developer with over 5 years of experience.</p>
 
                     <div id="scroll-down">
@@ -21,16 +22,56 @@
 
             <!-- about me -->
             <div class="aboutme bg-[#F5F5F5] pt-52 pb-52 dark:bg-slate-600">
+                
                 <div class="container">
                     <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">About Me</h1>
                     <p class="sub-text mt-3 text-slate-400">I am a Backend Engineer with more than 5 years of experience in the software development field. I have worked on various projects that demand expertise in managing databases, designing backend architectures, and ensuring optimal system performance.</p>
                     <!-- <br> -->
                     <p class="sub-text text-slate-400">I believe that the success of a Backend Engineer is not only based on a strong technical understanding but also on the ability to adapt quickly to changes. Flexibility and a willingness to continue learning are the keys to staying relevant in the rapidly evolving world of technology.</p>
                 </div>
+
             </div>
 
             <!-- skills -->
             <div class="skills pt-52 pb-52">
+
+                <div class="container">
+                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Projects</h1>
+                    <p class="mt-2">This my personal reaserch for improving my knowledge and productivity</p>
+                    <!-- containt -->
+                    <div >
+
+                        <h3 class="mt-4 mb-4 text-3xl">Website</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div v-for="project in websites">
+                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
+                            </div>
+                        </div>
+
+                        <h3 class="mt-4 mb-4 text-3xl">Backends / Server</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div v-for="project in backends">
+                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
+                            </div>
+                        </div>
+
+
+                        <h3 class="mt-4 mb-4 text-3xl">Tools</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div v-for="project in projects">
+                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- project -->
+            <div class="bg-[#F5F5F5] project pt-52 pb-52 dark:bg-slate-600">
+                
                 <div class="container">
                     <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Skills & Expertise</h1>
                     <div class="mt-4 flex space-x-4">
@@ -42,47 +83,8 @@
                         <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Rust</UBadge>
                     </div>
                 </div>
-            </div>
+                
 
-            <!-- project -->
-            <div class="bg-[#F5F5F5] project pt-52 pb-52 dark:bg-slate-600">
-                <div class="container">
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Projects</h1>
-                    <p class="mt-2">This my personal reaserch for improving my knowledge and productivity</p>
-                    <!-- containt -->
-                    <div >
-
-                        <h3 class="mt-4 mb-4 text-3xl">Website</h3>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div v-for="project in websites">
-                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
-                            </div>
-                        </div>
-
-                        <h3 class="mt-4 mb-4 text-3xl">Backends / Server</h3>
-                        <div class="grid grid-cols-2 gap-4">
-
-                            <div v-for="project in backends">
-                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
-                            </div>
-
-                        </div>
-
-
-                        <h3 class="mt-4 mb-4 text-3xl">Tools</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            
-                            
-
-                            <div v-for="project in projects">
-                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
-                            </div>
-
-                        </div>
-                        
-                    </div>
-                </div>
             </div>
 
             <!-- contact -->
@@ -173,7 +175,7 @@ export default {
 <style scoped>
 
 #title {
-    padding-top: 24%;
+    padding-top: 30%;
     margin-bottom: 0;
 }
 
