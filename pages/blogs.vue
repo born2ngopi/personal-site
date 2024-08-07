@@ -3,6 +3,9 @@
         <div class="blog">
             <div class="container">
                 <h1 class="text-4xl font-semibold text-sky-950 dark:text-white">Blog Page</h1>
+                <p class="text-slate-400 mt-3">This blog is only written in Indonesian, in line with my goal to help educate the Indonesian generation.</p>
+                <!-- adding line sparate -->
+                <div class="border-b-2 border-slate-200 dark:border-slate-600 mt-5 mb-5"></div>
                 <div class="block lg:hidden">
                     <div class="mt-10">
                         <BlogCard v-for="blog in blogs" :blog="blog" class="mb-4"/>
