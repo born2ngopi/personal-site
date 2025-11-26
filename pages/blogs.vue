@@ -87,6 +87,22 @@ const searchQuery = ref('')
 
 const blogs = [
   {
+    "id": "text-classification-from-scratch-with-cpp",
+    "commingsoon": true,
+    "title": "Build Own Model Code Generation With RUST #1 Scraping Data and Preprocessing",
+    "tags": ["C++", "Machine Learning","NLP", "Classification"],
+    "date": "2025-01-10",
+    "Summary": "Belajar membangun model code generation sendiri dengan RUST, mulai dari scraping data dan preprocessing."
+  },
+  {
+    "id": "text-classification-from-scratch-with-cpp",
+    "commingsoon": true,
+    "title": "Writing own CUDA Kernel for Matrix Multiplication",
+    "tags": ["C++", "Machine Learning","NLP", "Classification"],
+    "date": "2025-12-20",
+    "Summary": "Membangun kernel matrix multiplication sendiri dengan CUDA guna meningkatkan performa classification model."
+  },
+  {
       "id": "text-classification-from-scratch-with-cpp",
       "commingsoon": false,
       "title": "Text Classification from Scratch with C++",
