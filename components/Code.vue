@@ -1,5 +1,5 @@
 <template>
-  <div class="my-6 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm">
+  <div class="my-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm max-w-full overflow-hidden">
     <div class="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
       <div class="flex gap-1.5">
         <div class="w-3 h-3 rounded-full bg-red-400/80"></div>
@@ -9,10 +9,12 @@
       <span class="text-xs font-mono text-slate-500 dark:text-slate-400">{{ language }}</span>
     </div>
     <div class="relative group">
-      <div v-html="highlightedCode" class="text-sm font-mono overflow-x-auto p-4 bg-white dark:bg-[#1e1e1e]"></div>
+      <div class="overflow-x-auto">
+        <div v-html="highlightedCode" class="text-sm font-mono p-4 bg-white dark:bg-[#1e1e1e]"></div>
+      </div>
       <button 
         @click="copyToClipboard" 
-        class="absolute top-2 right-2 p-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-slate-200 dark:hover:bg-slate-600"
+        class="absolute top-2 right-2 p-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-slate-200 dark:hover:bg-slate-600 z-10"
         title="Copy code"
       >
         <UIcon :name="copied ? 'i-heroicons-check' : 'i-heroicons-clipboard'" class="w-4 h-4" />

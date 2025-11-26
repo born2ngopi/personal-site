@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxtjs/color-mode'],
+  colorMode: {
+    preference: 'light', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    classSuffix: '', // no suffix for dark mode class
+  },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },

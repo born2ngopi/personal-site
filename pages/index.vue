@@ -9,10 +9,13 @@
       
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="space-y-6 animate-fade-in-up">
-          <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Hello, I'm <span class="text-cerulean-600 dark:text-cerulean-400">Chandra</span>
-          </h1>
-          <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <div class="space-y-3">
+            <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 font-light">Hello, I'm</p>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
+              Chandra <span class="text-cerulean-600 dark:text-cerulean-400">Agung Rizky</span>
+            </h1>
+          </div>
+          <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-light">
             A passionate software developer crafting robust backends and elegant web experiences.
           </p>
           <div class="flex justify-center gap-4 pt-4">

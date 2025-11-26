@@ -2,9 +2,9 @@
   <div class="min-h-screen flex flex-col">
     <div class="flex-grow pt-24 pb-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <!-- Main Content -->
-          <article class="lg:col-span-8">
+          <article class="w-full lg:col-span-8">
             <!-- Header -->
             <header class="mb-8">
               <div class="flex flex-wrap gap-2 mb-4">
@@ -119,7 +119,7 @@
           </article>
 
           <!-- Sidebar -->
-          <aside class="lg:col-span-4 space-y-8">
+          <aside class="w-full lg:col-span-4 space-y-8">
             <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 sticky top-24">
               <div class="flex items-center gap-4 mb-4">
                 <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white dark:border-slate-700 shadow-sm">

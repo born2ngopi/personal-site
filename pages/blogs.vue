@@ -7,19 +7,47 @@
           <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Blog
           </h1>
-          <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+          <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mb-8">
             Sharing my journey in programming, backend development, and technology. 
             <span class="block mt-1 text-sm text-slate-500 italic">
               *Articles are written in Indonesian to support local education.
             </span>
           </p>
+
+          <!-- Search Bar -->
+          <div class="max-w-md">
+            <UInput
+              v-model="searchQuery"
+              icon="i-heroicons-magnifying-glass"
+              placeholder="Search articles..."
+              size="lg"
+              :ui="{ icon: { trailing: { pointer: '' } } }"
+              class="w-full"
+            >
+              <template #trailing>
+                <UButton
+                  v-show="searchQuery !== ''"
+                  color="gray"
+                  variant="link"
+                  icon="i-heroicons-x-mark"
+                  :padded="false"
+                  @click="searchQuery = ''"
+                />
+              </template>
+            </UInput>
+          </div>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8">
           <!-- Blog Grid -->
           <div class="lg:col-span-8">
-            <div class="grid md:grid-cols-2 gap-6">
-              <BlogCard v-for="blog in blogs" :key="blog.id" :blog="blog" />
+            <div v-if="filteredBlogs.length > 0" class="grid md:grid-cols-2 gap-6">
+              <BlogCard v-for="blog in filteredBlogs" :key="blog.id" :blog="blog" />
+            </div>
+            <div v-else class="text-center py-12 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <UIcon name="i-heroicons-document-magnifying-glass" class="w-12 h-12 text-slate-300 dark:text-slate-600 mb-4" />
+              <h3 class="text-lg font-medium text-slate-900 dark:text-white">No articles found</h3>
+              <p class="text-slate-500 dark:text-slate-400">Try adjusting your search terms.</p>
             </div>
           </div>
 
@@ -55,6 +83,8 @@
 </template>
 
 <script setup>
+const searchQuery = ref('')
+
 const blogs = [
     {
         "id": "kontribusi-di-golang",
@@ -79,30 +109,16 @@ const blogs = [
         "tags": ["Go", "Golang", "Programming"],
         "date": "2023-12-14",
         "Summary": "Banyak programmer golang yang tidak mengenal pragma, apa itu pragma dan gimana cara kerjanya?"
-    },
-    {
-        "id": "inside-channel-golang",
-        "commingsoon": true,
-        "title": "Inside Channel Golang",
-        "tags": ["Go", "Golang", "Programming","todo"],
-        "date": "2023-12-14",
-        "Summary": "Kita akan berkenalan dengan channel di golang"
-    },
-    {
-        "id": "making-2d-game-with-godot-4",
-        "commingsoon": true,
-        "title": "Making 2D Game with Godot 4",
-        "tags": ["Godot", "GDScript", "Programming", "todo"],
-        "date": "2023-12-14",
-        "Summary": "Kita akan belajar membuat 2D game sederhana dengan godot 4"
-    },
-    {
-        "id": "how-to-use-jaeger-for-logging",
-        "commingsoon": true,
-        "title": "How to Use Jaeger for Logging",
-        "tags": ["Go", "Golang", "Programming", "todo"],
-        "date": "2023-12-14",
-        "Summary": "Kita akan belajar menggunakan jaeger untuk logging di golang"
     }
 ]
+
+const filteredBlogs = computed(() => {
+  if (!searchQuery.value) return blogs
+  const query = searchQuery.value.toLowerCase()
+  return blogs.filter(blog => 
+    blog.title.toLowerCase().includes(query) || 
+    blog.Summary.toLowerCase().includes(query) ||
+    blog.tags.some(tag => tag.toLowerCase().includes(query))
+  )
+})
 </script>
