@@ -1,108 +1,56 @@
 <template>
-    <div id="navigation">
-        <nav class="flex justify-between" :class="{'shadow-md bg-neutral-50 dark:bg-slate-700': isScrolled}" >
-            <div id="title-header">
-                <a @click="navigateTo('/')">
-                    <span class="flex"> <span>hi@chan</span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.25 4.5l7.5 7.5l-7.5 7.5"/></svg> <span id="underscore">_</span> </span>
-                </a>
-            </div>
-            <div id="menu">
-                <a :class="{active: currentRoute === '/'}"  @click="navigateTo('/')">Me</a>
-                <a :class="{active: currentRoute === '/blogs'}"  @click="navigateTo('/blogs')">Blog</a>
-            </div>
-        </nav>
-    </div>
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" :class="{'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm': isScrolled, 'bg-transparent': !isScrolled}">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a @click="navigateTo('/')" class="cursor-pointer group flex items-center gap-1 text-xl font-bold text-slate-800 dark:text-white">
+                        <span>hi@chan</span>
+                        <UIcon name="i-heroicons-code-bracket" class="w-5 h-5 text-cerulean-500 group-hover:rotate-12 transition-transform" />
+                        <span class="animate-pulse text-cerulean-500">_</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a @click="navigateTo('/')" 
+                       class="text-sm font-medium transition-colors duration-200 cursor-pointer"
+                       :class="currentRoute === '/' ? 'text-cerulean-600 dark:text-cerulean-400' : 'text-slate-600 dark:text-slate-300 hover:text-cerulean-600 dark:hover:text-cerulean-400'">
+                        Me
+                    </a>
+                    <a @click="navigateTo('/blogs')" 
+                       class="text-sm font-medium transition-colors duration-200 cursor-pointer"
+                       :class="currentRoute === '/blogs' ? 'text-cerulean-600 dark:text-cerulean-400' : 'text-slate-600 dark:text-slate-300 hover:text-cerulean-600 dark:hover:text-cerulean-400'">
+                        Blog
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button (Optional, can be added later if needed) -->
+            </nav>
+        </div>
+    </header>
 </template>
 
-<script>
-export default {
-    data(){
-        return {
-            isScrolled: false
-        }
-    },
-    computed: {
-        currentRoute() {
-            return this.$route.path;
-        },
-    },
-    mounted() {
-        window.addEventListener('scroll', this.handleScroll);
-    },
-    methods: {
-        navigateTo(route) {
-            this.$router.push(route);
-        },
-        handleScroll() {
-            if (window.scrollY > 50) {
-                this.isScrolled = true;
-            } else {
-                this.isScrolled = false;
-            }
-        },
-    },
-}
+<script setup>
+const router = useRouter();
+const route = useRoute();
+const isScrolled = ref(false);
+
+const currentRoute = computed(() => route.path);
+
+const navigateTo = (path) => {
+    router.push(path);
+};
+
+const handleScroll = () => {
+    isScrolled.value = window.scrollY > 20;
+};
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+});
 </script>
-
-
-<style scoped>
-/* remove text decoration */
-nav {
-    padding-right: 6%;
-    padding-left: 6%;
-    position: fixed;
-    /* top: 0;
-    left: 0; */
-    z-index: 100;
-    width: 100%;
-    /* position: absolute; */
-}
-
-#title-header{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#menu {
-    display: flex;
-    justify-content: right;
-    right: 0;
-    /* margin-left: auto; */
-    /*margin-right: 2%;*/
-    /* margin-top: 10px; */
-    margin-bottom: 10px;
-}
-
-#underscore{
-    /* create blink animation */
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 100% {
-        color: transparent;
-    }
-    50% {
-        color: #e2e8f0;
-    }
-}
-/* nav {
-    background-color: v-bind(navBackgroundColor);
-} */
-
-
-a {
-    margin-top: 10px;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 1.5em;
-}
-
-a + a {
-    margin-left: 1em;
-}
-a.active {
-    border-bottom: 2px solid #e2e8f0;  
-}
-
-
-</style>

@@ -1,125 +1,142 @@
 <template>
-    <div class="blog">
-        <div class="container ">
-            <!-- header -->
-            <div>
-                <!-- title -->
-                <h1 class="text-4xl font-semibold text-sky-950 dark:text-white">Parsing by Reference or Value</h1>
-                <!-- author -->
-                <p class="text-slate-400 mt-3">Chandra Agung Rizky - 14 December 2023</p>
-                <!-- tags -->
-                <div class="flex flex-wrap mt-3">
-                    <!-- looping tags -->
-                    <div class="mr-2 mb-2" v-for="tag in tags">
-                        <span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600 dark:bg-purple-600 dark:text-purple-100"> {{ tag }} </span>
-                    </div>
+  <div class="min-h-screen flex flex-col">
+    <div class="flex-grow pt-24 pb-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
+          <!-- Main Content -->
+          <article class="lg:col-span-8">
+            <!-- Header -->
+            <header class="mb-8">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span v-for="tag in tags" :key="tag" class="px-2.5 py-0.5 rounded-full bg-cerulean-100 dark:bg-cerulean-900/30 text-cerulean-600 dark:text-cerulean-400 text-xs font-medium">
+                  {{ tag }}
+                </span>
+              </div>
+              <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
+                Parsing by Reference or Value
+              </h1>
+              <div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-2">
+                  <UIcon name="i-heroicons-calendar" />
+                  <time datetime="2023-12-14">14 December 2023</time>
                 </div>
-            </div>
-            <!-- adding line sparate -->
-            <div class="border-b-2 border-slate-200 dark:border-slate-600 mt-5 mb-5"></div>
-            
-            <!-- content -->
-            <div class="pb-16">
-                <div class="lg:grid lg:grid-cols-7 lg:gap-5">
-                    <!-- content -->
-                    <div class="lg:col-span-5">
-                        <!-- content -->
-                        <div class="text-sky-950 dark:text-white">
-                            <p>Benarkah return by reference (pointer) lebih bagus dibandingkan return by value ?</p>
-                            <br>
-                            <p>
-                                Banyak programmer golang yang ketika membuat fungsi atau method selalu menggunakan return by reference. Ketika saya tanya "kenapa menggunakan return by reference ?", kebanyakan dari mereka menjawab "lebih bagus, karena kita menggunakan alamat memory yang sama". Apakah benar seperti itu?
-                            </p>
-                            <br>
-                            <p>
-                                Jika saya diberi pertanyaan seperti itu, maka jawaban saya adalah <span class="font-semibold bg-green-200 dark:bg-teal-500"> Tergantung cara penggunaan</span>.
-                            </p>
-                            <br>
-                            <p>
-                                Golang memiliki memory manajement yang bisa dibilang sangat bagus. Golang memiliki gerbage collector (GC), tetapi penggunaan GC disini tidaklah gratis seperti yang kita banyangkan. Biaya yang kita bayarkan seperti resource, latency dan sebagainya.
-                            </p>
-                            <br>
-                            <p>
-                                Secara default, GC di golang running setiap 2 menit sekali (source bisa dibaca disini). Jadi selama GC itu belum dijalankan semua alamat memory akan terus bertambah di heap.
-                            </p>
-                            <br>
-                            <p>
-                                Di golang tidak semua alamat memory masuk kedalam heap, golang akan memvalidate lifetime dari setiap alamat memory tersebut apakah melebihi lifetime dari fungsi yang membuatnya atau tidak, bila lebih dari fungsi yang membuatnya maka akan masuk kedalam heap.
-                            </p>
-                            <br>
-                            <p>
-                                Contoh kode pertama :
-                            </p>
-                            <br>
-                            <Code :sourceCode="sampleOne" language="golang" />
-                            <br>
-                            <p>Dari contoh kode di atas, kita dapat melihat bahwa variable s <span class="font-semibold bg-green-200 dark:bg-teal-500">s := "hello"</span> lifetimenya tidak melebihi dari fungsi Hello().</p>
-                            <br>
-                            <p>Contoh kode kedua :</p>
-                            <br>
-                            <Code :sourceCode="sampleTwo" language="golang" />
-                            <br>
-                            <p>Jika kita lihat dari contoh kode di atas, kita dapat melihat bahwa variable s <span class="font-semibold bg-green-200 dark:bg-teal-500">s := "hello"</span> lifetimenya melebihi dari fungsi Hello() maka alamat memory s tersebut akan disimpan kedalam heap.</p>
-                            <br>
-                            <p>Apakah benar seperti itu ?, oke.., mari kita berbicara dengan compiler. Kita dapat tahu bahwa pada command <span class="font-semibold bg-green-200 dark:bg-teal-500">go build</span> memiliki options <span class="font-semibold bg-green-200 dark:bg-teal-500">-gcflags</span></p>
-                            <br>
-                            <Note>
-                                -gcflags '[pattern=]arg list'
-                                <br><br>
-                                arguments to pass on each go tool compile invocation.
-                            </Note>
-                            <br>
-                            <p>lalu kita jalan kan perintah ini : </p>
-                            <Code :sourceCode="sampleThree" language="shell"/>
-                            <br>
-                            <p>Pada kode pertama kita akan mendapatkan output:</p>
-                            <br>
-                            <Code :sourceCode="sampleFour" language="bash"/>
-                            <br>
-                            <p>Dan pada kode kedua mendapatkan output:</p>
-                            <br>
-                            <Code :sourceCode="sampleFive" language="bash"/>
-                            <p>Dari sini kita dapat melihat pada hasil kode ke 2, bahwa alamat memory dari s dipindahkan kedalam heap untuk selanjutnya di bersihkan oleh GC bila tidak lagi digunakan, sementara pada kode pertama golang akan langsung menghapus alamat memory tersebut setelah fungsi Hello() selesai.</p>
-                            <br>
-                            <p>Oke kita coba lihat kode assemblynya,</p>
-                            <br>
-                            <p>pada kode pertama kita akan menghasilkan output:</p>
-                            <br>
-                            <Code :sourceCode="sampleSix" language="assembly"/>
-                            <br>
-                            <p>Bisa kita lihat pada output diatas, <span class="font-semibold bg-green-200 dark:bg-teal-500">main.Hello(SB), NOSPLIT|ABIInternal, $0-0</span>. NOSPLIT adalah sebuah opcode atau instruksi pada assembly yang digunakan untuk menghindari pembuatan stack frame pada saat fungsi dipanggil. Pembuatan stack frame dapat memakan waktu dan ruang yang cukup besar pada memori, sehingga NOSPLIT digunakan untuk mengoptimalkan kinerja program dengan menghindari pembuatan stack frame.</p>
-                            <br>
-                            <p>pada kode kedua kita akan menghasilkan output :</p>
-                            <br>
-                            <Code :sourceCode="sampleSeven" language="assembly"/>
-                            <br>
-                            <p>Dari output diatas kita dapat melihat kode, <span class="font-semibold bg-green-200 dark:bg-teal-500">CALL runtime.newobject(SB)</span> yang berfungsi untuk mengalokasikan memory pada heap untuk objek yang baru dibuat.</p>
-                            <br>
-                            <p>Sekian artikel kali ini, bila bermanfaat silahkan share.</p>
-                        </div>
-                    </div>
-                    <!-- sidebar -->
-                    <div class="hidden lg:block lg:col-span-2">
-                        <div class="text-sky-950 dark:text-white">
-                            <h2 class="text-2xl font-semibold">About Me</h2>
-                            <p class="mt-3">Chandra Agung Rizky</p>
-                            <p class="mt-3">Software Engineer</p>
-                            <p class="mt-3">Indonesia</p>
-                        </div>
-                    </div>
+                <span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                <div class="flex items-center gap-2">
+                  <UIcon name="i-heroicons-user" />
+                  <span>Chandra Agung Rizky</span>
                 </div>
+              </div>
+            </header>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none">
+              <p class="lead text-xl text-slate-600 dark:text-slate-300">Benarkah return by reference (pointer) lebih bagus dibandingkan return by value ?</p>
+              
+              <p>
+                  Banyak programmer golang yang ketika membuat fungsi atau method selalu menggunakan return by reference. Ketika saya tanya "kenapa menggunakan return by reference ?", kebanyakan dari mereka menjawab "lebih bagus, karena kita menggunakan alamat memory yang sama". Apakah benar seperti itu?
+              </p>
+              
+              <p>
+                  Jika saya diberi pertanyaan seperti itu, maka jawaban saya adalah <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded"> Tergantung cara penggunaan</span>.
+              </p>
+              
+              <p>
+                  Golang memiliki memory manajement yang bisa dibilang sangat bagus. Golang memiliki gerbage collector (GC), tetapi penggunaan GC disini tidaklah gratis seperti yang kita banyangkan. Biaya yang kita bayarkan seperti resource, latency dan sebagainya.
+              </p>
+              
+              <p>
+                  Secara default, GC di golang running setiap 2 menit sekali (source bisa dibaca disini). Jadi selama GC itu belum dijalankan semua alamat memory akan terus bertambah di heap.
+              </p>
+              
+              <p>
+                  Di golang tidak semua alamat memory masuk kedalam heap, golang akan memvalidate lifetime dari setiap alamat memory tersebut apakah melebihi lifetime dari fungsi yang membuatnya atau tidak, bila lebih dari fungsi yang membuatnya maka akan masuk kedalam heap.
+              </p>
+              
+              <p>
+                  Contoh kode pertama :
+              </p>
+              
+              <Code :sourceCode="sampleOne" language="go" />
+              
+              <p>Dari contoh kode di atas, kita dapat melihat bahwa variable s <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded">s := "hello"</span> lifetimenya tidak melebihi dari fungsi Hello().</p>
+              
+              <p>Contoh kode kedua :</p>
+              
+              <Code :sourceCode="sampleTwo" language="go" />
+              
+              <p>Jika kita lihat dari contoh kode di atas, kita dapat melihat bahwa variable s <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded">s := "hello"</span> lifetimenya melebihi dari fungsi Hello() maka alamat memory s tersebut akan disimpan kedalam heap.</p>
+              
+              <p>Apakah benar seperti itu ?, oke.., mari kita berbicara dengan compiler. Kita dapat tahu bahwa pada command <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded">go build</span> memiliki options <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded">-gcflags</span></p>
+              
+              <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg border-l-4 border-cerulean-500 my-6">
+                  <p class="font-mono text-sm mb-2">-gcflags '[pattern=]arg list'</p>
+                  <p class="m-0">arguments to pass on each go tool compile invocation.</p>
+              </div>
+              
+              <p>lalu kita jalan kan perintah ini : </p>
+              <Code :sourceCode="sampleThree" language="bash"/>
+              
+              <p>Pada kode pertama kita akan mendapatkan output:</p>
+              
+              <Code :sourceCode="sampleFour" language="bash"/>
+              
+              <p>Dan pada kode kedua mendapatkan output:</p>
+              
+              <Code :sourceCode="sampleFive" language="bash"/>
+              <p>Dari sini kita dapat melihat pada hasil kode ke 2, bahwa alamat memory dari s dipindahkan kedalam heap untuk selanjutnya di bersihkan oleh GC bila tidak lagi digunakan, sementara pada kode pertama golang akan langsung menghapus alamat memory tersebut setelah fungsi Hello() selesai.</p>
+              
+              <p>Oke kita coba lihat kode assemblynya,</p>
+              
+              <p>pada kode pertama kita akan menghasilkan output:</p>
+              
+              <Code :sourceCode="sampleSix" language="asm"/>
+              
+              <p>Bisa kita lihat pada output diatas, <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded">main.Hello(SB), NOSPLIT|ABIInternal, $0-0</span>. NOSPLIT adalah sebuah opcode atau instruksi pada assembly yang digunakan untuk menghindari pembuatan stack frame pada saat fungsi dipanggil. Pembuatan stack frame dapat memakan waktu dan ruang yang cukup besar pada memori, sehingga NOSPLIT digunakan untuk mengoptimalkan kinerja program dengan menghindari pembuatan stack frame.</p>
+              
+              <p>pada kode kedua kita akan menghasilkan output :</p>
+              
+              <Code :sourceCode="sampleSeven" language="asm"/>
+              
+              <p>Dari output diatas kita dapat melihat kode, <span class="font-semibold bg-green-200 dark:bg-teal-500/30 px-1 rounded">CALL runtime.newobject(SB)</span> yang berfungsi untuk mengalokasikan memory pada heap untuk objek yang baru dibuat.</p>
+              
+              <p>Sekian artikel kali ini, bila bermanfaat silahkan share.</p>
             </div>
+          </article>
+
+          <!-- Sidebar -->
+          <aside class="lg:col-span-4 space-y-8">
+            <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 sticky top-24">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white dark:border-slate-700 shadow-sm">
+                   <img src="/backend-illustration.png" alt="Chandra Agung Rizky" class="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Chandra Agung Rizky</h3>
+                  <p class="text-sm text-cerulean-600 dark:text-cerulean-400 font-medium">Backend Engineer</p>
+                </div>
+              </div>
+              
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                I'm a software engineer passionate about Go, backend architecture, and cloud computing. 
+                This blog is where I document my learning process and share knowledge with the community.
+              </p>
+
+              <div class="flex gap-2">
+                <UButton size="xs" color="gray" variant="soft" icon="i-fa6-brands-github" to="https://github.com/born2ngopi" target="_blank">Github</UButton>
+                <UButton size="xs" color="gray" variant="soft" icon="i-fa6-brands-linkedin" to="https://linkedin.com/in/chandra-agung-rizky" target="_blank">LinkedIn</UButton>
+              </div>
+            </div>
+          </aside>
         </div>
-        <Footer />
+      </div>
     </div>
+    <Footer />
+  </div>
 </template>
 
-<script>
-export default {
-    data(){
-        return {
-            tags: ["Go", "Golang", "Programming"],
-            sampleOne: `
+<script setup>
+const tags = ["Go", "Golang", "Programming"]
+
+const sampleOne = `
 func Hello() string {
     s := "hello"
     return s
@@ -127,8 +144,9 @@ func Hello() string {
 
 func main() {
     print(Hello())
-}`,
-            sampleTwo: `
+}`
+
+const sampleTwo = `
 func Hello() *string {
     s := "hello"
     return &s
@@ -136,20 +154,24 @@ func Hello() *string {
 
 func main() {
     print(Hello())
-}`,
-            sampleThree:`
-go build -gcflags "-l -m" .`,
-            sampleFour: `
+}`
+
+const sampleThree = `
+go build -gcflags "-l -m" .`
+
+const sampleFour = `
 # command-line-arguments
 ./main.go:14:13: ... argument does not escape
 ./main.go:14:19: Hello() escapes to heap
-`,
-            sampleFive: `
+`
+
+const sampleFive = `
 # command-line-arguments
 ./main.go:9:6: moved to heap: s
 ./main.go:14:13: ... argument does not escape
-`,
-            sampleSix: `
+`
+
+const sampleSix = `
 main.Hello STEXT nosplit size=13 args=0x0 locals=0x0 funcid=0x0 align=0x0
 	0x0000  	TEXT	main.Hello(SB), NOSPLIT|ABIInternal, $0-0
 	0x0000  	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
@@ -187,8 +209,9 @@ main.main STEXT size=71 args=0x0 locals=0x18 funcid=0x0 align=0x0
 	0x0040  	CALL	runtime.morestack_noctxt(SB)
 	0x0045  	PCDATA	$0, $-1
 	0x0045  	JMP	0
-`,
-            sampleSeven: `
+`
+
+const sampleSeven = `
 main.Hello STEXT size=72 args=0x0 locals=0x18 funcid=0x0 align=0x0
 	0x0000  	TEXT	main.Hello(SB), ABIInternal, $24-0
 	0x0000  	CMPQ	SP, 16(R14)
@@ -250,13 +273,4 @@ main.main STEXT size=86 args=0x0 locals=0x20 funcid=0x0 align=0x0
 	0x0054  	PCDATA	$0, $-1
 	0x0054  	JMP	0
 `
-        }
-    }
-}
 </script>
-
-<style scoped>
-.blog {
-    padding-top: 100px;
-}
-</style>

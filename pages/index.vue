@@ -1,233 +1,186 @@
 <template>
-    <div>
-       
-
-        <div class="home">
-            
-            <div class="me ">
-                
-                <div class="container">
-                    <h1 id="title" class="text-6xl font-semibold text-sky-950 dark:text-white">Hello... 👋,</h1>
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">I'm Chandra Agung Rizky</h1>
-                    <p id="sub-title" class="sub-text text-slate-400">A passionate software developer with over 5 years of experience.</p>
-
-                    <div id="scroll-down">
-                        <svg width="40px" height="100%" viewBox="0 0 247 390" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-                            <path id="wheel" d="M123.359,79.775l0,72.843" style="fill:none;stroke-width:20px;" class="stroke-slate-700 dark:stroke-slate-100"/>
-                            <path id="mouse" d="M236.717,123.359c0,-62.565 -50.794,-113.359 -113.358,-113.359c-62.565,0 -113.359,50.794 -113.359,113.359l0,143.237c0,62.565 50.794,113.359 113.359,113.359c62.564,0 113.358,-50.794 113.358,-113.359l0,-143.237Z" style="fill:none;stroke-width:20px;" class="stroke-slate-700 dark:stroke-slate-100"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- about me -->
-            <div class="aboutme bg-[#F5F5F5] pt-52 pb-52 dark:bg-slate-600">
-                
-                <div class="container">
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">About Me</h1>
-                    <p class="sub-text mt-3 text-slate-400">I am a Backend Engineer with more than 5 years of experience in the software development field. I have worked on various projects that demand expertise in managing databases, designing backend architectures, and ensuring optimal system performance.</p>
-                    <!-- <br> -->
-                    <p class="sub-text text-slate-400">I believe that the success of a Backend Engineer is not only based on a strong technical understanding but also on the ability to adapt quickly to changes. Flexibility and a willingness to continue learning are the keys to staying relevant in the rapidly evolving world of technology.</p>
-                </div>
-
-            </div>
-
-            <!-- skills -->
-            <div class="skills pt-52 pb-52">
-
-                <div class="container">
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Projects</h1>
-                    <p class="mt-2">This my personal reaserch for improving my knowledge and productivity</p>
-                    <!-- containt -->
-                    <div >
-
-                        <h3 class="mt-4 mb-4 text-3xl">Website</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div v-for="project in websites">
-                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
-                            </div>
-                        </div>
-
-                        <h3 class="mt-4 mb-4 text-3xl">Backends / Server</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div v-for="project in backends">
-                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
-                            </div>
-                        </div>
-
-
-                        <h3 class="mt-4 mb-4 text-3xl">Tools</h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div v-for="project in projects">
-                                <CardProject :title="project.title" :description="project.description" :Icon="project.icon" :Link="project.link" />
-                            </div>
-
-                        </div>
-                        
-                    </div>
-                </div>
-                
-            </div>
-
-            <!-- project -->
-            <div class="bg-[#F5F5F5] project pt-52 pb-52 dark:bg-slate-600">
-                
-                <div class="container">
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Skills & Expertise</h1>
-                    <div class="mt-4 flex space-x-4">
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Vue</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Go</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Python</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Javascript</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Php</UBadge>
-                        <UBadge size="lg" :ui="{ rounded: 'rounded-lg' }" color="indigo" variant="solid">Rust</UBadge>
-                    </div>
-                </div>
-                
-
-            </div>
-
-            <!-- contact -->
-            <div class="pt-52 pb-52 ">
-                <div class="container">
-                    <h1 class="text-6xl font-semibold text-sky-950 dark:text-white">Contact Me</h1>
-                    <p class="sub-text mt-3 text-slate-400">Let's discuss your project or idea. You can reach me at:</p>
-                    <a href="mailto:needkopi@gmail.com" class="sub-text text-sky-950 dark:text-white font-semibold underline"> needkopi@gmail.com </a>
-                </div>
-
-            </div>
-
+  <div class="relative">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-cerulean-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="space-y-6 animate-fade-in-up">
+          <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Hello, I'm <span class="text-cerulean-600 dark:text-cerulean-400">Chandra</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            A passionate software developer crafting robust backends and elegant web experiences.
+          </p>
+          <div class="flex justify-center gap-4 pt-4">
+            <UButton size="xl" color="primary" variant="solid" to="#contact">Let's Talk</UButton>
+            <UButton size="xl" color="gray" variant="ghost" to="#projects">View Work</UButton>
+          </div>
         </div>
-
-        <Footer />
-    </div>
         
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <UIcon name="i-heroicons-arrow-down" class="w-8 h-8 text-slate-400" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">About Me</h2>
+            <div class="space-y-4 text-lg text-slate-600 dark:text-slate-300">
+              <p>
+                I am a Backend Engineer with over 5 years of experience in the software development field. 
+                I specialize in managing databases, designing scalable backend architectures, and ensuring optimal system performance.
+              </p>
+              <p>
+                I believe that technical expertise must be paired with adaptability. 
+                In the rapidly evolving world of technology, flexibility and a continuous learning mindset are my keys to staying relevant and effective.
+              </p>
+            </div>
+          </div>
+          <div class="relative">
+             <div class="aspect-square rounded-2xl bg-gradient-to-br from-cerulean-500 to-indigo-600 opacity-10 absolute -inset-4 blur-lg"></div>
+             <div class="aspect-square rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center relative overflow-hidden shadow-lg">
+                <img src="/backend-illustration.png" alt="Backend Engineer Illustration" class="w-full h-full object-cover" />
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Featured Projects</h2>
+        <p class="text-slate-600 dark:text-slate-400 mb-12">Personal research and tools for improving productivity.</p>
+
+        <div class="space-y-16">
+          <!-- Websites -->
+          <div>
+            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+              <UIcon name="i-heroicons-globe-alt" /> Websites
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <CardProject v-for="project in websites" :key="project.title" v-bind="project" />
+            </div>
+          </div>
+
+          <!-- Backends -->
+          <div>
+            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-6 flex items-center gap-2">
+              <UIcon name="i-heroicons-server" /> Backends & Tools
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <CardProject v-for="project in backends" :key="project.title" v-bind="project" />
+              <CardProject v-for="project in projects" :key="project.title" v-bind="project" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12">Skills & Expertise</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <UBadge v-for="skill in skills" :key="skill" size="lg" color="primary" variant="subtle" class="px-4 py-2 text-base">
+            {{ skill }}
+          </UBadge>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">Get In Touch</h2>
+        <p class="text-xl text-slate-600 dark:text-slate-300 mb-8">
+          Have a project in mind or just want to say hi? I'd love to hear from you.
+        </p>
+        <UButton size="xl" to="mailto:needkopi@gmail.com" icon="i-heroicons-envelope" color="primary" variant="solid">
+          needkopi@gmail.com
+        </UButton>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
 </template>
 
-<script>
-export default {
-    //name: 'HomeView',
-    mounted() {
-        let screenHeight = window.innerHeight;
-        window.addEventListener('resize', () => {
-        screenHeight = window.innerHeight;
-        });
+<script setup>
+const skills = ['Vue', 'Go', 'Python', 'Javascript', 'Php', 'Rust', 'Nuxt', 'Docker', 'SQL'];
 
-        // set height of class me to screen height
-        document.getElementsByClassName('me')[0].style.height = screenHeight + 'px';
-    },
-    // create list data for project
-    data() {
-        return {
-            websites: [
-                {
-                    title: 'Personal Site',
-                    description: 'This my personal site',
-                    icon: ['i-nonicons-vue-16','i-simple-icons-nuxtdotjs'],
-                    link: 'https://github.com/born2ngopi/personal-site',
-                }
-            ],
-            projects: [
-                {
-                    title: 'Orca',
-                    description: 'Orca is tools for auto generate commit with ollama',
-                    icon: ['i-fa6-brands-golang'],
-                    link: 'https://github.com/born2ngopi/orca',
-                },
-                {
-                    title: 'Dolpin',
-                    description: 'Dolpin is tools for auto generate go unit test',
-                    icon: ['i-fa6-brands-golang'],
-                    link: 'https://github.com/born2ngopi/dolpin',
-                }
-            ],
-            backends: [
-                {
-                    title: 'Ngamux',
-                    link:'https://github.com/ngamux/ngamux',
-                    description: 'Simple HTTP router for Go',
-                    icon: ['i-fa6-brands-golang']
-                },
-                {
-                    title: 'Server',
-                    link:'https://github.com/indenosia/server',
-                    description: 'Http framework for deno',
-                    icon: ['i-teenyicons-deno-outline']
-                },
-                {
-                    title:'Requtrap',
-                    link: 'https://github.com/libidev/requtrap.go',
-                    description: 'Fast and Configurable API Gateway Written Using Go',
-                    icon: ['i-fa6-brands-golang','i-carbon-gateway-api']
-                },
-                {
-                    title: 'Flag',
-                    link: 'https://github.com/naya-team/flag',
-                    description: 'Flagger code for better feature release',
-                    icon: ['i-fa6-brands-golang','i-wpf-filled-flag']
-                }
-            ]
-        }
-    }
-};
+const websites = [
+  {
+    title: 'Personal Site',
+    description: 'My personal portfolio website built with Nuxt 3 and Tailwind CSS.',
+    icon: ['i-logos-vue', 'i-logos-nuxt-icon'],
+    link: 'https://github.com/born2ngopi/personal-site',
+  }
+];
+
+const projects = [
+  {
+    title: 'Orca',
+    description: 'CLI tool for auto-generating git commit messages using Ollama.',
+    icon: ['i-logos-go'],
+    link: 'https://github.com/born2ngopi/orca',
+  },
+  {
+    title: 'Dolpin',
+    description: 'Tool for auto-generating Go unit tests to improve code coverage.',
+    icon: ['i-logos-go'],
+    link: 'https://github.com/born2ngopi/dolpin',
+  }
+];
+
+const backends = [
+  {
+    title: 'Ngamux',
+    link: 'https://github.com/ngamux/ngamux',
+    description: 'A simple and lightweight HTTP router for Go applications.',
+    icon: ['i-logos-go']
+  },
+  {
+    title: 'Server',
+    link: 'https://github.com/indenosia/server',
+    description: 'HTTP framework for Deno designed for simplicity.',
+    icon: ['i-logos-deno']
+  },
+  {
+    title: 'Requtrap',
+    link: 'https://github.com/libidev/requtrap.go',
+    description: 'Fast and configurable API Gateway written in Go.',
+    icon: ['i-logos-go', 'i-carbon-gateway-api']
+  },
+  {
+    title: 'Flag',
+    link: 'https://github.com/naya-team/flag',
+    description: 'Feature flag management library for better release control.',
+    icon: ['i-logos-go', 'i-heroicons-flag']
+  }
+];
 </script>
 
 <style scoped>
-
-#title {
-    padding-top: 30%;
-    margin-bottom: 0;
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-#sub-title {
-    margin-top: 0;
-}
-
-.sub-text {
-    font-size: 1.5em;
-}
-
-.me{
-    height: 100%;
-}
-
-.aboutme {
-    height: 100%;
-    width: 100%;
-    /* background-color: #F5F5F5; */
-}
-
-
-@keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
-    30% {
-        transform: translateY(100px);
-    }
-}
-
-svg #wheel {
-    animation: scroll ease 1.5s infinite;
-}
-
-/* make id scroll-down to center */
-#scroll-down {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    /* set to bottom */
-    position: absolute;
-    bottom: 50px;
-    /* set to center */
-    left: 50%;
-}
-
-/* check if screen width under 900 px hide scroll-down */
-@media (max-width: 900px) {
-    #scroll-down {
-        display: none;
-    }
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
   

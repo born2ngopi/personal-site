@@ -1,67 +1,41 @@
 <template>
-    <div >
-        <!-- create tag a and put props link to href -->
-        <a :href="Link">
-            <div 
-                class="
-                    border-solid 
-                    border-2 
-                    border-slate-200 
-                    dark:border-slate-400
-                    rounded-sm
-                    p-4 
-                    mt-4
-                    hover:dark:bg-slate-400
-                    hover:bg-slate-200"
-            >
-                <!-- title -->
-                <div class="flex justify-between">
-                    <p class="pt-2 dark:text-gray-200 font-semibold">{{ title }}</p>
-                    <!-- loops icon -->
-                    <div class="grid grid-cols-2 gap-2">
-                        <div v-for="icon in Icon">
-                            <UIcon class="w-10 h-10" :name="icon" dynamic/>
-                        </div>
-                    </div>
-                </div>
-                <!-- set description -->
-                <p class="">{{ description }}</p>
-            </div>
-        </a>
-    </div>
+  <a :href="Link" target="_blank" class="block h-full group">
+    <UCard class="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 dark:bg-slate-800/50 dark:hover:bg-slate-800 border-slate-200 dark:border-slate-700">
+      <template #header>
+        <div class="flex justify-between items-start">
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-cerulean-600 dark:group-hover:text-cerulean-400 transition-colors">
+            {{ title }}
+          </h3>
+          <div class="flex gap-2">
+            <UIcon v-for="icon in Icon" :key="icon" :name="icon" class="w-5 h-5 text-slate-400 group-hover:text-cerulean-500 transition-colors" dynamic />
+          </div>
+        </div>
+      </template>
+
+      <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+        {{ description }}
+      </p>
+    </UCard>
+  </a>
 </template>
 
-<script>
-
-
-export default {
-    name: 'CardProject',
-    props: {
-        title: {
-            type: String,
-            required: true
-        },
-        description: {
-            type: String,
-            required: true
-        },
-        Icon: {
-            // array of strings
-            type: Array,
-            required: true
-        },
-        Link: {
-            type: String,
-            required: true
-        }
-    }
-}
-
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  Icon: {
+    type: Array,
+    required: true
+  },
+  Link: {
+    type: String,
+    required: true
+  }
+})
 </script>
-
-<style scoped>
-/* check if title hovered */
-#title:hover {
-    color: red;
-}
-</style>
