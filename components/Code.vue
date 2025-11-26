@@ -42,7 +42,7 @@ const copied = ref(false)
 
 const highlighter = await createHighlighter({
   themes: ['github-light', 'vitesse-dark'],
-  langs: ['javascript', 'typescript', 'vue', 'html', 'css', 'bash', 'go', 'json', 'yaml', 'markdown']
+  langs: ['javascript', 'typescript', 'vue', 'html', 'css', 'bash', 'go', 'json', 'yaml', 'markdown', 'cpp']
 })
 
 const colorMode = useColorMode()

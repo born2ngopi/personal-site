@@ -86,30 +86,38 @@
 const searchQuery = ref('')
 
 const blogs = [
-    {
-        "id": "kontribusi-di-golang",
-        "commingsoon": false,
-        "title": "Ikut Berkontribusi di Golang",
-        "tags": ["Go", "Golang", "Programming"],
-        "date": "2024-05-17",
-        "Summary": "Kita akan belajar dan mencoba bagaimana caranya berkontribusi di golang"
-    },
-    {
-        "id": "parsing-by-reference-or-value",
-        "commingsoon": false,
-        "title": "Parsing by Reference or Value",
-        "tags": ["Go", "Golang", "Programming"],
-        "date": "2023-12-14",
-        "Summary": "Apakah benar parsing by reference itu lebih baik manajemen memorynya daripada parsing by value?"
-    },
-    {
-        "id": "mengenal-pragma-di-golang",
-        "commingsoon": false,
-        "title":"Mengenal Pragma di Golang",
-        "tags": ["Go", "Golang", "Programming"],
-        "date": "2023-12-14",
-        "Summary": "Banyak programmer golang yang tidak mengenal pragma, apa itu pragma dan gimana cara kerjanya?"
-    }
+  {
+      "id": "text-classification-from-scratch-with-cpp",
+      "commingsoon": false,
+      "title": "Text Classification from Scratch with C++",
+      "tags": ["C++", "Machine Learning", "Classification"],
+      "date": "2025-11-26",
+      "Summary": "Membangun model text classification sederhana dari nol menggunakan C++, mulai dari sigma, matriks, hingga logistic regression."
+  },
+  {
+      "id": "kontribusi-di-golang",
+      "commingsoon": false,
+      "title": "Ikut Berkontribusi di Golang",
+      "tags": ["Go", "Golang", "Programming"],
+      "date": "2024-05-17",
+      "Summary": "Kita akan belajar dan mencoba bagaimana caranya berkontribusi di golang"
+  },
+  {
+      "id": "parsing-by-reference-or-value",
+      "commingsoon": false,
+      "title": "Parsing by Reference or Value",
+      "tags": ["Go", "Golang", "Programming"],
+      "date": "2023-12-14",
+      "Summary": "Apakah benar parsing by reference itu lebih baik manajemen memorynya daripada parsing by value?"
+  },
+  {
+      "id": "mengenal-pragma-di-golang",
+      "commingsoon": false,
+      "title":"Mengenal Pragma di Golang",
+      "tags": ["Go", "Golang", "Programming"],
+      "date": "2023-12-14",
+      "Summary": "Banyak programmer golang yang tidak mengenal pragma, apa itu pragma dan gimana cara kerjanya?"
+  }
 ]
 
 const filteredBlogs = computed(() => {
