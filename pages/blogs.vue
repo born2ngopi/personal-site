@@ -65,7 +65,7 @@
               </div>
               
               <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                I'm a software engineer passionate about Go, backend architecture, and cloud computing. 
+                I'm a software engineer passionate backend architecture, and cloud computing, and maybe AI technology.
                 This blog is where I document my learning process and share knowledge with the community.
               </p>
 
@@ -90,7 +90,7 @@ const blogs = [
     "id": "text-classification-from-scratch-with-cpp",
     "commingsoon": true,
     "title": "Build Own Model Code Generation With RUST #1 Scraping Data and Preprocessing",
-    "tags": ["C++", "Machine Learning","NLP", "Classification"],
+    "tags": ["Rust", "Machine Learning","NLP", "Classification"],
     "date": "2025-01-10",
     "Summary": "Belajar membangun model code generation sendiri dengan RUST, mulai dari scraping data dan preprocessing."
   },
